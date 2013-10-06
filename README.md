@@ -1,4 +1,4 @@
 mumblepy
 ========
 
-Python Mumble for Humans™.
+WORK IN PROGRESS
