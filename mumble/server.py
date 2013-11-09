@@ -12,6 +12,9 @@ class Server(object):
     def __len__(self):
         return
 
+    def __repr__(self):
+        return '<%s: %s>' % (self.__class__.__name__, self.id)
+    
     @property
     def running(self):
         return bool(self.__server.isRunning())
