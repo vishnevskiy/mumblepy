@@ -6,6 +6,9 @@ class User(object):
         self.__server = server
         self.__user = user
 
+    def __repr__(self):
+        return '<%s: %s>' % (self.__class__.__name__, self.__user.name)
+        
     def ban(self, reason='', bits=128, duration=360):
         from Murmur import Ban
         bans = self.__server.get_bans()
