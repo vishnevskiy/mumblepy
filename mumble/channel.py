@@ -14,14 +14,14 @@ class Channel(object):
             setattr(self.__channel, key, value)
         self.__server.set_channel_state(self.__channel)
 
-    def allow(self, permissions):
+    def allow(self, group, permissions):
         acls, groups, inherit = self.__server.get_acl(self.__channel.id)
-        acls[0].allow = permissions
+        [acl for acl in acls if acl.group == group][0].allow = permissions
         self.__server.set_acl(self.__channel.id, acls, groups, inherit)
 
-    def deny(self, permissions):
+    def deny(self, group, permissions):
         acls, groups, inherit = self.__server.get_acl(self.__channel.id)
-        acls[0].deny = permissions
+        [acl for acl in acls if acl.group == group][0].deny = permissions
         self.__server.set_acl(self.__channel.id, acls, groups, inherit)
 
     def serialize(self):
