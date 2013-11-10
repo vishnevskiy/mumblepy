@@ -24,7 +24,7 @@ PERMISSION_TEXT_MESSAGE = 0x200
 # Kick user from server. Only valid on root channel.
 PERMISSION_TICK = 0x10000
 # Ban user from server. Only valid on root channel.
-PERMISSION_BANK = 0x20000
+PERMISSION_BAN = 0x20000
 # Register and unregister users. Only valid on root channel.
 PERMISSION_REGISTER = 0x40000
 # Register and unregister users. Only valid on root channel.
