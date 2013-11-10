@@ -9,12 +9,12 @@ class Server(object):
         self.__meta = meta
         self.__server = server
 
-    def __len__(self):
-        return
-
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.id)
-    
+
+    def __len__(self):
+        return len(self.__server.getUsers())
+
     @property
     def running(self):
         return bool(self.__server.isRunning())
@@ -89,6 +89,11 @@ class Server(object):
 
     def set_bans(self, bans):
         self.__server.setBans(bans)
+
+    # ACL
+
+    def get_acl(self):
+        return self.__server.getACL()
 
     # Hooks
 

@@ -3,6 +3,9 @@ class Channel(object):
         self.__server = server
         self.__channel = channel
 
+    def __repr__(self):
+        return '<%s: %s>' % (self.__class__, self.__channel.name)
+
     def delete(self):
         self.__server.remove_channel(self.__channel.id)
 
