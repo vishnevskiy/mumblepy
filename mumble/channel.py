@@ -4,7 +4,7 @@ class Channel(object):
         self.__channel = channel
 
     def __repr__(self):
-        return '<%s: %s>' % (self.__class__, self.__channel.name)
+        return '<%s: %s>' % (self.__class__.__name__, self.__channel.name)
 
     def delete(self):
         self.__server.remove_channel(self.__channel.id)
@@ -13,6 +13,9 @@ class Channel(object):
         for key, value in kwargs.items():
             setattr(self.__channel, key, value)
         self.__server.set_channel_state(self.__channel)
+
+    def get_acl(self):
+        return self.__server.getACL(self.__channel.id)
 
     def serialize(self):
         return {
