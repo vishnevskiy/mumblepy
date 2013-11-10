@@ -15,7 +15,7 @@ class Channel(object):
         self.__server.set_channel_state(self.__channel)
 
     def get_acl(self):
-        return self.__server.getACL(self.__channel.id)
+        return self.__server.get_acl(self.__channel.id)
 
     def serialize(self):
         return {
