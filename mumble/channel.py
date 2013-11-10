@@ -17,12 +17,12 @@ class Channel(object):
     def allow(self, permissions):
         acls, groups, inherit = self.__server.get_acl(self.__channel.id)
         acls[0].allow = acls[0].allow = permissions
-        self.__server.set_acl(self.__channel.id, acls, groups)
+        self.__server.set_acl(self.__channel.id, acls, groups, inerit)
 
     def deny(self, permissions):
         acls, groups, inherit = self.__server.get_acl(self.__channel.id)
         acls[0].allow = acls[0].allow = permissions
-        self.__server.set_acl(self.__channel.id, acls, groups)
+        self.__server.set_acl(self.__channel.id, acls, groups, inherit)
 
     def serialize(self):
         return {
