@@ -95,6 +95,9 @@ class Server(object):
     def get_acl(self, channel_id):
         return self.__server.getACL(channel_id)
 
+    def set_acl(self, channel_id, acls, groups, inherit=False):
+        self.__server.setACL(channel_id, acls, groups, inherit)
+
     # Hooks
 
     def add_hook(self, cls):

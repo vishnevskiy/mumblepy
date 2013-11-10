@@ -29,30 +29,3 @@ PERMISSION_BANK = 0x20000
 PERMISSION_REGISTER = 0x40000
 # Register and unregister users. Only valid on root channel.
 PERMISSION_REGISTER_SELF = 0x80000
-
-
-class ACL(object):
-    def __init__(self, acl):
-        self.raw = acl
-
-    def __repr__(self):
-        return '<%s>' % self.__class__
-
-    def __add__(self, other):
-        self.raw.allow = self.raw & other
-        self.raw.deny = self.raw | other
-
-    def __sub__(self, other):
-        self.raw.allow = self.raw | other
-        self.raw.deny = self.raw - other
-
-    def serialize(self):
-        return {
-            'apply_here': self.raw.apply_here,
-            'apply_subs': self.raw.apply_subs,
-            'inherited': self.raw.inherited,
-            'user_id': self.raw.userid,
-            'group': self.raw.group,
-            'allow': self.raw.allow,
-            'deny': self.raw.deny,
-        }
