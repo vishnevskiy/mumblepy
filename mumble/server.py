@@ -90,6 +90,11 @@ class Server(object):
     def set_bans(self, bans):
         self.__server.setBans(bans)
 
+    # ACL
+
+    def get_acl(self, channel_id):
+        return self.__server.getACL(channel_id)
+
     # Hooks
 
     def add_hook(self, cls):
